@@ -1,0 +1,90 @@
+<html>
+
+<head>
+  <title>Pathfinding Visualizer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link id="cssTheme" rel="stylesheet" href="style/style.css" />
+  <link rel="shortcut icon" type="image/png" href="style/img/c_icon.png" />
+</head>
+
+<body>
+
+  <div id='navbarDiv'>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a id="refreshButton" class="navbar-brand" href="./index.html">Pathfinding Visualizer</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Algorithms
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id='startButtonDijkstra'><a href="#">Dijkstra's Algorithm</a></li>
+              <li id='startButtonBidirectional'><a href="#">Bidirectional Swarm Algorithm</a></li>
+              <li id='startButtonBFS'><a href="#">Breadth-first Search</a></li>
+              <li id='startButtonDFS'><a href="#">Depth-first Search</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Simulation Patterns
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id='startButtonCreateMazeTwo'><a href="#">Recursive Division</a></li>
+              <li id='startButtonCreateMazeThree'><a href="#">Recursive Division (vertical skew)</a></li>
+              <li id='startButtonCreateMazeFour'><a href="#">Recursive Division (horizontal skew)</a></li>
+              <li id='startButtonCreateMazeOne'><a href="#">Basic Random Maze</a></li>
+              <li id='startButtonCreateMazeWeights'><a href="#">Basic Weight Maze</a></li>
+              <li id='startStairDemonstration'><a href="#">Recursive Weight Pattern</a></li>
+            </ul>
+          </li>
+          <li id='startButtonWeightToggle'><a href="#">Add Weight</a></li>
+          <li id='startButtonAddObject'><a href="#"> Add Stop</a></li>
+          <li id='startButtonClearBoard'><a href="#">Clear Map</a></li>
+          <li id='Time' style="display: inline-block; width: 200px;"><a href="#"> </a></li>
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id='mainText'>
+    <ul>
+      <li>
+        <div class="start"></div>Start Node
+      </li>
+      <li>
+        <div class="target"></div>Target Node
+      </li>
+      <li id="bombLegend">
+        <div class="object"></div>Stop Node
+      </li>
+      <li id="weightLegend">
+        <div class="borderlessWeight"></div>Weight Node
+      </li>
+      <li>
+        <div class="unvisited"></div>Unvisited Node
+      </li>
+      <li>
+        <div class="visited"></div>
+        <div class="visitedobject"></div>Visited Nodes
+      </li>
+      <li>
+        <div class="shortest-path"></div>Shortest-path Node
+      </li>
+      <li>
+        <div class="wall"></div>Obstacle Node
+      </li>
+    </ul>
+  </div>
+
+  <div id='mainGrid'>
+    <table id='board'>
+    </table>
+  </div>
+</body>
+
+<script type="module" src='src/Main.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</html>

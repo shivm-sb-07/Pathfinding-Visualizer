@@ -1,0 +1,722 @@
+/* Default Setting */
+
+* {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.72222;
+}
+
+/* main grid comment */
+
+#mainGrid {
+  width: 100%;
+  z-index: 1;
+}
+
+#board {
+  position: absolute;
+  bottom: 0px;
+  margin: 10px;
+  border-collapse: collapse;
+}
+
+#board td {
+  border: 1px solid rgb(175, 216, 248);
+  width: 40px;
+  height: 40px;
+}
+
+.unvisited {
+  border: 1px solid rgb(175, 216, 248);
+  background-color: white
+}
+
+#algorithmDescriptor {
+  position: relative;
+  text-align: center;
+  color: aliceblue;
+  padding: 15px 20px 15px 20px;
+  border-radius: 3px;
+  background-color: darkcyan;
+  margin: auto;
+  width: 100px;
+  height: 25px;
+}
+
+#weight_button {
+  position: absolute;
+  text-align: center;
+  color: black;
+  padding: 15px 20px 15px 20px;
+  border-radius: 3px;
+}
+
+#algorithmDescriptor:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.start {
+  background-image: url(img/triangletwo-right.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.target {
+  background-image: url(img/circle.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes specialNodes {
+  0% {
+    transform: scale(.8);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+.wall {
+  background-image: url(img/weight.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: wallAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes wallAnimation {
+  0% {
+    transform: scale(.9);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+
+  }
+}
+
+.weight {
+  background-color: rgb(12, 53, 71);
+  animation-name: weightAnimation;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes weightAnimation {
+  0% {
+    transform: scale(.9);
+    background-color: aqua;
+
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: aquamarine;
+
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+
+  }
+}
+
+.object {
+  background-image: url(img/diamond.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+
+.visited {
+  border: 1px solid rgb(175, 216, 248);
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+visited.weight {
+  border: 1px solid rgb(175, 216, 248);
+  background-color: white !important;
+  background-image: url(img/weight.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75)
+  }
+
+  100% {
+    transform: scale(1.0);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
+}
+
+.visitedobject {
+  background: red;
+  border: 1px solid rgb(175, 216, 248);
+  animation-name: visitedObjectAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes visitedObjectAnimation {
+  0% {
+    transform: scale(.3);
+    background-color: rgba(20, 4, 41, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(45, 0, 97, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(86, 5, 216, 0.75)
+  }
+
+  100% {
+    transform: scale(1.0);
+    background-color: rgba(123, 67, 255, 0.75);
+  }
+}
+
+.startTransparent {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  opacity: 0.5;
+  background-image: url(img/triangletwo-right.png);
+  background-color: rgb(106, 146, 255);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.visitedStartNodeBlue {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background-image: url(img/triangletwo-right.png);
+  /*background-color: rgb (58, 155, 205);*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: visitedStartNodeBlueAnimation;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.visitedStartNodePurple {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background-image: url(img/triangletwo-right.png);
+  /*background-color: rgb (58, 155, 205);*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: visitedStartNodePurpleAnimation;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.visitedObjectNode {
+  background-image: url(img/diamond.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: visitedStartNodeBlueAnimation;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.visitedTargetNodeBlue {
+  background-image: url(img/circle.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: visitedStartNodeBlueAnimation;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.visitedTargetNodePurple {
+  background-image: url(img/circle.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: visitedStartNodePurpleAnimation;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes visitedStartNodePurpleAnimation {
+  0% {
+    transform: scale(.3);
+    background-color: rgba(41, 4, 24, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(97, 0, 20, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(216, 5, 141, 0.75)
+  }
+
+  100% {
+    transform: scale(1.0);
+    background-color: rgba(178, 67, 255, 0.75);
+  }
+}
+
+@keyframes visitedStartNodeBlueAnimation {
+  0% {
+    transform: scale(.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+
+  100% {
+    transform: scale(1.0);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
+}
+
+.instantshortest-path-up {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/triangletwo-up.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.shortest-path-up {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/triangletwo-up.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: triangletwo;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.instantshortest-path-down {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/triangletwo-down.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.shortest-path-down {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/triangletwo-down.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: triangletwo;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.instantshortest-path-right {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/triangletwo-right.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.shortest-path-right {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/triangletwo-right.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: triangletwo;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.instantshortest-path-left {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(timg/riangletwo-left.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.shortest-path-left {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/triangletwo-left.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: triangletwo;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.current {
+  border: 1px solid rgb(28, 44, 3);
+  background-color: rgb(4, 48, 51);
+}
+
+.instantStartTransparent {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  opacity: 0.5;
+  background-image: url(img/triangletwo-right.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.startTransparent {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  opacity: 0.5;
+  background-image: url(img/triangletwo-right.png);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.shortest-path {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background-color: darkgrey;
+  /*background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;*/
+  animation-name: triangletwo;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.shortest-path.weight {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background-color: wheat;
+  background-image: url(img/weight.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: triangletwo;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes triangletwo {
+  0% {
+    transform: scale(.6);
+    background-color: darkgray;
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: rgb(31, 31, 31);
+
+  }
+
+  100% {
+    transform: scale(1.0);
+    background-color: royalblue;
+
+  }
+}
+
+.shortest-path-unweighted {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background: url(img/spaceshiptwo-up.svg);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain
+}
+
+.instantobjectTransparent {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  opacity: 0.5;
+  background-image: url(img/diamond.svg);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.objectTransparent {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  opacity: 0.5;
+  background-image: url(img/diamond.svg);
+  background-color: rgb (58, 155, 205);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.instantvisitedobject {
+  border: 1px solid rgb(175, 216, 248);
+  background-color: rgba(178, 67, 255, 0.75);
+  /*background-color: rgba(0, 190, 218, 0.75);*/
+}
+
+.instantvisitedobject.weight {
+  /* border: 1px solid rgb(175, 216, 248);
+    background-color: rgba(178, 67, 255, 0.75); */
+  /*background-color: rgba(0, 190, 218, 0.75);*/
+  background-image: url(img/weight.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 8px;
+}
+
+
+
+#mainText div {
+  /*border: 1px solid rgb(12, 53, 71);*/
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  position: relative;
+  top: 0.35em;
+  margin: 0 0.42em;
+}
+
+#mainText>ul li {
+  display: inline-block;
+  list-style: none;
+  padding: 0 25px 0 0;
+}
+
+.start {
+  /*border: 1px solid rgb(175, 216, 248);*/
+  background-image: url(img/triangletwo-right.png);
+  /*background-color: rgb(255, 254, 106);*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.borderlessWeight {
+  background-color: rgb(12, 53, 71);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: unvisitedWeightAnimation;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+/* Animations  */
+
+@keyframes unvisitedWeightAnimation {
+  0% {
+    transform: scale(.3);
+    /*background-color: rgb(12, 53, 71);*/
+  }
+
+  50% {
+    transform: scale(1.2);
+    /*background-color: rgb(12, 53, 71);*/
+  }
+
+  100% {
+    transform: scale(1.0);
+    /*background-color: rgb(12, 53, 71);*/
+  }
+}
